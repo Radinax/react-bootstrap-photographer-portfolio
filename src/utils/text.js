@@ -103,7 +103,6 @@ export const galleryText = {
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium inventore, sint quisquam fugiat pariatur culpa officia. Eveniet omnis quia tempora.",
   },
-  list: ["All", "New", "Free", "Pro"],
   images: [
     Img1,
     Img2,
@@ -154,4 +153,73 @@ export const customerText = {
       image: Customer3,
     },
   ],
+};
+
+export const pricingText = {
+  main: {
+    title: "Join Us",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium inventore, sint quisquam fugiat pariatur culpa officia. Eveniet omnis quia tempora.",
+  },
+  signup: "sign-up!",
+  prices: [
+    {
+      title: "Unlimited Access",
+      value: "499",
+      list: [
+        "Photoshop",
+        "After Effects",
+        "Graphic Design",
+        "Video Montage",
+        "Clip Making",
+      ],
+    },
+    {
+      title: "Annual Membership",
+      value: "199",
+      list: ["Photoshop", "After Effects", "Graphic Design", "Video Montage"],
+    },
+    {
+      title: ">Monthly Membership",
+      value: "19",
+      list: [
+        "Photoshop",
+        "After Effects",
+        "Graphic Design",
+        "Video Montage",
+        "Clip Making",
+      ],
+    },
+  ],
+  gratitude: "Thanks for being with us!",
+};
+
+export const contactText = {
+  title: "Get In Touch",
+};
+
+export const footerText = {
+  main: {
+    title: "About Us",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam nobis dicta molestiae id laboriosam natus repudiandae, ducimus illum veritatis perspiciatis possimus, at facere debitis accusantium?",
+  },
+  visit: "Visit Us",
+  links: [
+    "Home",
+    "Mission",
+    "Collection",
+    "Gallery",
+    "Customers",
+    "Pricing",
+    "Contact",
+  ],
+  help: "Need Help?",
+  services: ["Customer Service", "Online Chat", "Support", "photox@email.com"],
+  connected: {
+    title: "Stay Connected",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque accusamus dolores iste praesentium assumenda est quia accusantium corrupti ipsam inventore.",
+  },
+  copyright: new Date().getFullYear() + " Copyright, All Rights Reserved",
 };

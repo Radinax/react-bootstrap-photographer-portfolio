@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import classnames from "classnames";
 import { missionText } from "../../utils/text";
 import Camera from "../../assets/images/camera.png";
 
 const Mission = () => {
   const { main, secondary, objective } = missionText;
+  const [scrollPosition, setSrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setSrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const mainMission = (
     <div className="col m-4">
@@ -28,10 +42,19 @@ const Mission = () => {
           alt="image1"
           src={Camera}
           width="350"
-          className="img-fluid camera-img"
+          className={classnames("img-fluid camera-img", {
+            fromLeft: scrollPosition >= 650,
+          })}
         />
       </div>
-      <div className="col-lg-7 text-white text-lg-right text-center mission-text">
+      <div
+        className={classnames(
+          "col-lg-7 text-white text-lg-right text-center mission-text",
+          {
+            fromRight: scrollPosition >= 650,
+          }
+        )}
+      >
         <h1>{objective.title}</h1>
         <p className="lead">{objective.content}</p>
       </div>
@@ -39,7 +62,7 @@ const Mission = () => {
   );
 
   return (
-    <section className="p-5 mission">
+    <section className="p-5 mission" id="Mission">
       <div className="container-fluid">
         <div className="row text-white text-center">{mainMission}</div>
         <div className="row my-5">{secondaryMissions}</div>

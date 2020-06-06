@@ -2,7 +2,7 @@ import React from "react";
 import { galleryText } from "../../utils/text";
 
 const Gallery = () => {
-  const { main, list, images } = galleryText;
+  const { main, images } = galleryText;
 
   const title = (
     <div class="row text-muted text-center">
@@ -12,21 +12,6 @@ const Gallery = () => {
         <p class="lead">{main.content}</p>
       </div>
     </div>
-  );
-
-  const inlineList = (
-    <ul className="list-inline text-center text-uppercase font-weight-bold my-4">
-      {list.map((item, index) => (
-        <li
-          key={index}
-          class="list-inline-item gallery-list-item active-item"
-          data-filter="all"
-        >
-          {item}
-          <span class="mx-md-5 mx-3 text-muted">/</span>
-        </li>
-      ))}
-    </ul>
   );
 
   const gallery = (
@@ -42,10 +27,9 @@ const Gallery = () => {
   );
 
   return (
-    <section className="py-5">
+    <section className="py-5" id="Gallery">
       <div className="container-fluid">
         {title}
-        {inlineList}
         {gallery}
       </div>
     </section>

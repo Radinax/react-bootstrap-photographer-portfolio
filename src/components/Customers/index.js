@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { customerText } from "../../utils/text";
 
 const Customers = () => {
+  const [order, setOrder] = useState("0");
   const { main, indicator, users } = customerText;
 
   const title = (
@@ -22,7 +23,7 @@ const Customers = () => {
           key={num}
           data-target="#customer-carousel"
           data-slide-to={num}
-          className="active"
+          onClick={() => setOrder(num)}
         ></li>
       ))}
     </ol>
@@ -31,34 +32,36 @@ const Customers = () => {
   // TODO: USERS OVERLAPING, CONTROL WITH STATE
   const userInformation = (
     <div className="carousel-inner">
-      {users.map((user) => (
-        <div className="carousel-item active text-center">
-          <img
-            src={user.image}
-            className="img-fluid rounded-circle m-5"
-            alt="users"
-            width="150"
-          />
-          <blockquote className="blockquote text-white">
-            <p className="mb-5">{user.description}</p>
-          </blockquote>
-          <h5 className="text-light text-uppercase font-weight-bold mb-3">
-            {user.name}
-          </h5>
-          <ul className="list-inline mb-5">
-            {[...Array(user.stars)].map((star, index) => (
-              <li key={index} className="list-inline-item">
-                <i className="fa fa-star text-warning"></i>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {users
+        .filter((user, index) => order === index.toString())
+        .map((user) => (
+          <div className="carousel-item active text-center">
+            <img
+              src={user.image}
+              className="img-fluid rounded-circle m-5"
+              alt="users"
+              width="150"
+            />
+            <blockquote className="blockquote text-white">
+              <p className="mb-5">{user.description}</p>
+            </blockquote>
+            <h5 className="text-light text-uppercase font-weight-bold mb-3">
+              {user.name}
+            </h5>
+            <ul className="list-inline mb-5">
+              {[...Array(user.stars)].map((star, index) => (
+                <li key={index} className="list-inline-item">
+                  <i className="fa fa-star text-warning"></i>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
     </div>
   );
 
   return (
-    <section className="p-5 customers">
+    <section className="p-5 customers" id="Customers">
       <div className="container-fluid">
         {title}
         <div className="row">

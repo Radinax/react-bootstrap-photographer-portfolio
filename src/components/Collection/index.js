@@ -32,7 +32,7 @@ const Collection = () => {
   );
 
   return (
-    <section className="bg-secondary py-4">
+    <section className="bg-secondary py-4" id="Collection">
       <div className="container-fluid">
         {introduction}
         {collections}

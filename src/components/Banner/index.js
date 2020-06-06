@@ -15,7 +15,7 @@ const Banner = () => {
   const banner = <p className="lead banner-par">{content}</p>;
 
   return (
-    <div className="text-light text-md-right text-center banner">
+    <div className="text-light text-md-right text-center banner" id="Home">
       {title}
       {banner}
     </div>

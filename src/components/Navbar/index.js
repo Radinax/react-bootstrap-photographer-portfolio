@@ -1,7 +1,9 @@
 import React from "react";
+import classnames from "classnames";
 import { navbarText } from "../../utils/text";
 
 const Navbar = () => {
+  // const [isActive, setIsActive] = useState(false);
   const { title_1, title_2, navItems } = navbarText;
 
   const logo = (
@@ -33,7 +35,12 @@ const Navbar = () => {
       <ul className="navbar-nav">
         {navItems.map((item, index) => (
           <li className="nav-item" key={index}>
-            <a href="asdad" className="nav-link m-2 menu-item nav-active">
+            <a
+              href={`#${item}`}
+              className={classnames("nav-link m-2 menu-item", {
+                "nav-active": false,
+              })}
+            >
               {item}
             </a>
           </li>
